@@ -1,24 +1,46 @@
-
-<div class="p-4">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" formControlName="email" class="form-control">
-            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Connexion</h3>
+  
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Adresse email</label>
+              <input
+                type="email"
+                formControlName="email"
+                id="email"
+                class="form-control"
+                placeholder="Entrer votre email"
+              />
+              <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger small">
                 Email invalide
+              </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" formControlName="password" class="form-control">
-            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+  
+            <div class="mb-3">
+              <label for="password" class="form-label">Mot de passe</label>
+              <input
+                type="password"
+                formControlName="password"
+                id="password"
+                class="form-control"
+                placeholder="Votre mot de passe"
+              />
+              <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger small">
                 Mot de passe requis
+              </div>
             </div>
+  
+            <div *ngIf="msgError" class="alert alert-danger text-center py-1">
+              {{ msgError }}
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Connexion</button>
+          </form>
+          <div><span><a href="#" routerLink="/register">s'inscrire</a></span></div>
         </div>
-
-        <button type="submit" class="btn btn-primary">Connexion</button>
-    </form>
-</div>
-
-
+      </div>
+    </div>
+  </div>
+  
