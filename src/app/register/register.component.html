@@ -1,0 +1,84 @@
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-md-6 col-lg-4">
+      
+          <h3 class="text-center mb-4">Inscription</h3>
+  
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nom</label>
+                <input
+                  type="texte"
+                  formControlName="nom"
+                  id="nom"
+                  class="form-control"
+                  placeholder="Entrer votre nom"
+                />
+                
+              </div>
+
+              <div class="mb-3">
+                <label for="prenom" class="form-label">prenom</label>
+                <input
+                  type="texte"
+                  formControlName="prenom"
+                  id="prenom"
+                  class="form-control"
+                  placeholder="Entrer votre prenom"
+                />
+                
+              </div>
+
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Adresse email</label>
+              <input
+                type="email"
+                formControlName="email"
+                id="email"
+                class="form-control"
+                placeholder="Entrer votre email"
+              />
+              <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger small">
+                Email invalide
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="password" class="form-label">Mot de passe</label>
+              <input
+                type="password"
+                formControlName="password"
+                id="password"
+                class="form-control"
+                placeholder="Votre mot de passe"
+              />
+              <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger small">
+                Mot de passe requis
+              </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="repeatpassword" class="form-label">Confirmation mot de passe</label>
+                <input
+                  type="password"
+                  formControlName="repeatpassword"
+                  id="repeatpassword"
+                  class="form-control"
+                  placeholder="confirme mot de passe"
+                />
+                <div *ngIf="registerForm.get('repeatpassword')?.invalid && registerForm.get('repeatpassword')?.touched" class="text-danger small">
+                  Mot de passe requis
+                </div>
+              </div>
+  
+            <div *ngIf="msgError" class="alert alert-danger text-center py-1">
+              {{ msgError }}
+            </div>
+  
+            <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">S'inscrire</button>
+          </form>
+        </div>
+      </div>
+   
+  
