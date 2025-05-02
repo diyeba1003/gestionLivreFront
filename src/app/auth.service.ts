@@ -22,11 +22,10 @@ export class AuthService {
         const decodeToken: any = jwtDecode(token);
         console.log('Jeton décodé :', JSON.stringify(decodeToken, null, 2));
 
-   //chaîne '[ROLE_USER]' on supprime les crochets
-        const rolesString = decodeToken.role;
-        const roles = rolesString ? rolesString.replace(/\[|\]/g, '').split(',') : [];
+   const roles = Array.isArray(decodeToken.role) ? decodeToken.role : [];
 
-        return roles.map((role: string) => role.trim());  
+return roles;  
+
     }
     return [];
 }
