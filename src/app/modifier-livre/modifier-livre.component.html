@@ -1,0 +1,63 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+  
+        <h2 class="text-center mb-4">Modification du Livre</h2>
+
+<form [formGroup]="livreForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label class="form-label">Titre:</label>
+    <input class="form-control" type="text" formControlName="titre" />
+    <div *ngIf="livreForm.get('titre')?.invalid && livreForm.get('titre')?.touched" class="text-danger">
+       titre  requis avec au moins 3 caractères.
+      </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Auteur:</label>
+    <input class="form-control" type="text" formControlName="auteur" />
+    <div *ngIf="livreForm.get('auteur')?.invalid && livreForm.get('auteur')?.touched" class="text-danger">
+        auteur  requis avec au moins 3 caractères.
+      </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description:</label>
+    <textarea class="form-control" formControlName="description"></textarea>
+    <div *ngIf="livreForm.get('description')?.invalid && livreForm.get('description')?.touched" class="text-danger">
+        La description  requise avec au moins 5 caractères.
+      </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Genre:</label>
+    <input class="form-control" type="text" formControlName="genre" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">ISBN:</label>
+    <input class="form-control" type="text" formControlName="isbn" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Date de publication:</label>
+    <input class="form-control" type="date" formControlName="datePublication" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">URL de l'image:</label>
+    <input class="form-control" type="text" formControlName="urlImage" />
+  </div>
+   <div class="d-grid">
+    <button class="btn btn-primary" type="submit" [disabled]="livreForm.invalid">Modifier</button>
+   </div>
+</form>
+
+<div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+
+</div>
+</div>
+</div>
+

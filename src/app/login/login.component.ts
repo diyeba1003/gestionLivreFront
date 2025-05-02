@@ -36,10 +36,10 @@ login(email: string, password: string){
       const roles = this.auth.getUserRoles();
 
             //redirection en fonction du role
-      if(roles.includes('ROLE_USER')){
-        this.router.navigate(['/register']);
-      }else if(roles.includes('ROLE_ADMIN')){
-        this.router.navigate(['login']);
+      if(roles.includes('USER')){
+        this.router.navigate(['/livres']);
+      }else if(roles.includes('ADMIN')){
+        this.router.navigate(['/livres']);
         console.log("cest un admminnnn")
       }else{
         this.router.navigate(['login']);

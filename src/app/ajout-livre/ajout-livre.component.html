@@ -1,0 +1,101 @@
+<form [formGroup]="livreForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="titre">Titre</label>
+      <input
+        id="titre"
+        formControlName="titre"
+        type="text"
+        class="form-control"
+        placeholder="Entrez le titre du livre"
+      />
+      <div *ngIf="livreForm.get('titre')?.invalid && livreForm.get('titre')?.touched" class="text-danger">
+        Titre requis avec au moins 3 caractères.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="auteur">Auteur</label>
+      <input
+        id="auteur"
+        formControlName="auteur"
+        type="text"
+        class="form-control"
+        placeholder="Entrez l'auteur du livre"
+      />
+      <div *ngIf="livreForm.get('auteur')?.invalid && livreForm.get('auteur')?.touched" class="text-danger">
+        Auteur requis avec au moins 3 caractères.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        class="form-control"
+        placeholder="Entrez la description du livre"
+      ></textarea>
+      <div *ngIf="livreForm.get('description')?.invalid && livreForm.get('description')?.touched" class="text-danger">
+        La description est requise avec au moins 5 caracteres.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="genre">Genre</label>
+      <input
+        id="genre"
+        formControlName="genre"
+        type="text"
+        class="form-control"
+        placeholder="Entrez le genre du livre"
+      />
+      <div *ngIf="livreForm.get('genre')?.invalid && livreForm.get('genre')?.touched" class="text-danger">
+        Le genre est requis.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="isbn">ISBN</label>
+      <input
+        id="isbn"
+        formControlName="isbn"
+        type="text"
+        class="form-control"
+        placeholder="Entrez l'ISBN du livre"
+      />
+      <div *ngIf="livreForm.get('isbn')?.invalid && livreForm.get('isbn')?.touched" class="text-danger">
+        L'ISBN est requis.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="datePublication">Date de Publication</label>
+      <input
+        id="datePublication"
+        formControlName="datePublication"
+        type="date"
+        class="form-control"
+      />
+      <div *ngIf="livreForm.get('datePublication')?.invalid && livreForm.get('datePublication')?.touched" class="text-danger">
+        La date de publication est requise.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="urlImage">URL de l'image</label>
+      <input
+        id="urlImage"
+        formControlName="urlImage"
+        type="text"
+        class="form-control"
+        placeholder="Entrez l'URL de l'image du livre"
+      />
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="livreForm.invalid">Ajouter le livre</button>
+  </form>
+  
+  <div *ngIf="successMessage" class="alert alert-success mt-3">
+    {{ successMessage }}
+  </div>
+  

@@ -9,13 +9,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component'; 
 import { HttpClientModule } from '@angular/common/http';
+import { LivreComponent } from './livre/livre.component';
+import { ModifierLivreComponent } from './modifier-livre/modifier-livre.component';
+import { AjoutLivreComponent } from './ajout-livre/ajout-livre.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    LivreComponent,
+    ModifierLivreComponent,
+    AjoutLivreComponent
   ],
   imports: [
     BrowserModule,
