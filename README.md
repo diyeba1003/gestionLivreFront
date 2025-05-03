@@ -3,6 +3,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
 
+## Prérequis:
+    **Node.js**
+    **NPM**
+    **Angular CLI**
+## Installation:
+Clonez le projet  
+ https://github.com/diyeba1003/gestionLivreFront.git  
+
+## Installation dependance:
+npm install
+
+## Lancement de l'application avec
+ng serve ou npm start
+
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
